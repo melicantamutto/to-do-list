@@ -1,16 +1,16 @@
 import Select from "./Select";
 import Input from "./Input";
 
-const Form = ({ setTasks, tasks, setInputText, inputText }) => {
+const Form = ({ setTasks, tasks, setInputText, inputText, setStatus }) => {
   return (
     <form>
       <Input
-       setTasks={setTasks}
-       tasks={tasks}
-       setInputText={setInputText}
-       inputText={inputText}
+        setTasks={setTasks}
+        tasks={tasks}
+        setInputText={setInputText}
+        inputText={inputText}
       />
-      <Select />
+      <Select setStatus={setStatus} />
     </form>
   );
 };
