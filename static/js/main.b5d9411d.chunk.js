@@ -1,2 +1,0 @@
-(this["webpackJsonpto-do-list"]=this["webpackJsonpto-do-list"]||[]).push([[0],{10:function(t,e,n){"use strict";n.r(e);var c=n(1),o=n.n(c),r=n(3),s=n.n(r),i=(n(8),n(0)),d=function(){return Object(i.jsx)(i.Fragment,{children:Object(i.jsx)("header",{children:Object(i.jsx)("h1",{children:"To-do List"})})})};s.a.render(Object(i.jsx)(o.a.StrictMode,{children:Object(i.jsx)(d,{})}),document.getElementById("root"))},8:function(t,e,n){}},[[10,1,2]]]);
-//# sourceMappingURL=main.b5d9411d.chunk.js.map
