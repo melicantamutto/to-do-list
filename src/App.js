@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Form from "../avances/Form";
+import Form from "./components/Form";
 import ToDoList from "./components/ToDoList";
 
 const App = () => {
