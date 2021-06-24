@@ -10,22 +10,19 @@ const App = () => {
   const [status, setStatus] = useState("all");
   const [filteredTasks, setFilteredTasks] = useState([]);
 
-  
-  useEffect(() => {
-    const getFromFirebase = () => {
-      const docs = [];
-      db.collection("tasks")
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            docs.push({ ...doc.data, id: doc.id });
-          });
+  const getFromFirebase = () => {
+    const docs = [];
+    db.collection("tasks")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          docs.push({ ...doc.data(), id: doc.id });
         });
-      setTasks(docs);
-    };
-    getFromFirebase();
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+        setTasks(docs);
+      });
+  };
+  
+  useEffect(getFromFirebase, [tasks]);
 
   useEffect(() => {
     const handlerFilter = () => {
