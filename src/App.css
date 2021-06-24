@@ -117,7 +117,7 @@ form button:hover {
   opacity: 0.5;
 }
 
-/*CUSTOM SELECTOR */
+/* CUSTOM SELECTOR */
 select {
   -webkit-appearance: none;
   -moz-appearance: none;

@@ -2,26 +2,27 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import ToDoList from "./components/ToDoList";
+import { db } from "./firebase-config";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [inputText, setInputText] = useState("");
   const [status, setStatus] = useState("all");
   const [filteredTasks, setFilteredTasks] = useState([]);
- 
-   useEffect(() => {
-     const getLocalTasks = (()=>{
-       if(localStorage.getItem('tasks') == null){
-         localStorage.setItem("tasks", JSON.stringify(tasks))
-       } else{
-         const tasksLocal = JSON.parse(localStorage.getItem('tasks'));
-         setTasks(tasksLocal);
-       } 
-     }
-     ) 
-    getLocalTasks();
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-   }, []);
+
+  const getFromFirebase = () => {
+    const docs = [];
+    db.collection("tasks")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          docs.push({ ...doc.data(), id: doc.id });
+        });
+        setTasks(docs);
+      });
+  };
+  
+  useEffect(getFromFirebase, [tasks]);
 
   useEffect(() => {
     const handlerFilter = () => {
@@ -37,13 +38,8 @@ const App = () => {
           break;
       }
     };
-    const saveLocalTasks = () => {
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-    };
-    saveLocalTasks();
     handlerFilter();
   }, [tasks, status]);
-
 
   return (
     <>
@@ -59,8 +55,6 @@ const App = () => {
       />
       <ToDoList
         filteredTasks={filteredTasks}
-        setTasks={setTasks}
-        tasks={tasks}
       />
     </>
   );

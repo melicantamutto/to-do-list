@@ -1,11 +1,11 @@
 import Task from "./Task";
 
-const ToDoList = ({ tasks, setTasks, filteredTasks }) => {
+const ToDoList = ({ filteredTasks }) => {
   return (
     <div className="todo-container">
       <ul className="todo-list">
         {filteredTasks.map((task) => (
-          <Task task={task} tasks={tasks} setTasks={setTasks} key={task.id} />
+          <Task task={task} key={task.id} />
         ))}
       </ul>
     </div>
