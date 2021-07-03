@@ -7,17 +7,17 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    justifyContent: 'space-between',
-    paddingRight: '0.4rem',
-    marginBottom: '0.75rem',
-    backgroundColor: '#f4f3ee',
+    justifyContent: "space-between",
+    paddingRight: "0.4rem",
+    marginBottom: "0.75rem",
+    backgroundColor: "#f4f3ee",
     alignItems: "center",
   },
   content: {
     flex: "1 0 auto",
   },
-  mainText:{
-    textAlign: 'left'
+  mainText: {
+    textAlign: "left",
   },
   buttons: {
     background: "#643939",
@@ -26,17 +26,21 @@ const useStyles = makeStyles((theme) => ({
     padding: "1rem",
     cursor: "pointer",
     fontSize: "1rem",
-    '&> .fa-times':{
-      padding: '0 0.16rem'
-    }
+    "&> .fa-times": {
+      padding: "0 0.16rem",
+    },
   },
 
   checkButton: {
-    background: 'rgb(87, 179, 151)',
+    background: "rgb(87, 179, 151)",
   },
   redButton: {
-    backgroundColor: '#a73636',
-  }
+    backgroundColor: "#a73636",
+  },
+  completed: {
+    textDecoration: "line-through",
+    opacity: "0.5",
+  },
 }));
 
 const Task = ({ task }) => {
@@ -75,29 +79,29 @@ const Task = ({ task }) => {
 
   return (
     <Card className={classes.root} id={task.id}>
-        <CardContent className={classes.content}>
-          <Typography
-            component="h5"
-            variant="h5"
-            className={`${classes.mainText} ${task.completed && "completed"}`}
-          >
-            {task.text}
-          </Typography>
-        </CardContent>
-        <div>
-          <button
-            onClick={handlerComplete}
-            className={`${classes.buttons} ${classes.checkButton} ${task.completed && classes.redButton}`}
-          >
-            <i
-              className={`fas ${task.completed ? "fa-times" : "fa-check"}`}
-            ></i>
-          </button>
+      <CardContent className={classes.content}>
+        <Typography
+          component="h5"
+          variant="h5"
+          className={`${classes.mainText} ${task.completed && classes.completed}`}
+        >
+          {task.text}
+        </Typography>
+      </CardContent>
+      <div>
+        <button
+          onClick={handlerComplete}
+          className={`${classes.buttons} ${classes.checkButton} ${
+            task.completed && classes.redButton
+          }`}
+        >
+          <i className={`fas ${task.completed ? "fa-times" : "fa-check"}`}></i>
+        </button>
 
-          <button onClick={handlerDelete} className={classes.buttons}>
-            <i className="fas fa-trash"></i>
-          </button>
-        </div>
+        <button onClick={handlerDelete} className={classes.buttons}>
+          <i className="fas fa-trash"></i>
+        </button>
+      </div>
     </Card>
   );
 };
