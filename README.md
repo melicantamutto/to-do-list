@@ -1,10 +1,31 @@
-# Getting Started with Create React App
+# To-do List React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+__Hola! Esta es una app web con un juego de tipo match-3.__
 
-## Available Scripts
+__Podés verla (o usarla) haciendo click [acá](https://melicantamutto.github.io/to-do-list/).__
 
-In the project directory, you can run:
+__Este proyecto fue creado con [Create React App](https://github.com/facebook/create-react-app).__
+
+
+## Instalación 🔧
+
+Para clonar este repositorio tenés que:
+
+- Ir la [página](https://github.com/melicantamutto/matcheadas)
+
+- Hacer click en ![botón de fork en github](https://raw.githubusercontent.com/melicantamutto/generador-de-memes/master/images/fork.png)
+
+- Hacer click en el botón Code y copiar la url
+
+- Y luego en tu terminal de git (situandote en la carpeta deseada) escribir
+
+   ` git clone <url>`
+
+- Entrar en la carpeta del proyecto y abrirlo en tu IDE
+
+## Scripts Disponibles
+
+En el directorio del proyecto podés ejecutar:
 
 ### `npm start`
 
@@ -39,32 +60,31 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Leer más
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Podés leer más sobre el tema en la [documentación de Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para aprender sobre React, chequea la [documentación de React](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Así se debería ver el proyecto
 
-### Analyzing the Bundle Size
+![captura del proyecto](./img/full_project.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+***
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Construido con ⌨️
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [React](https://reactjs.org/)
+- [Material UI](https://material-ui.com/)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+***
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Agradecimientos 💕
+
+- A mi profe [Jonh](https://github.com/Jonhks)
+- Si te gustó y lo queres compartir, te agradeciría muchisimo.
