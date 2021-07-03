@@ -1,16 +1,29 @@
-import Select from "./Select";
+import SelectInput from "./SelectInput";
 import Input from "./Input";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    width:'fit-content',
+    backgroundColor: '#f8edeb',
+    margin:'2rem auto',
+    borderRadius:'10px',
+    padding:'0.25rem 0.75rem'
+  },
+}));
 
 const Form = ({ setTasks, tasks, setInputText, inputText, setStatus }) => {
+  const classes = useStyles();
   return (
-    <form>
+    <form className={classes.root}>
       <Input
         setTasks={setTasks}
         tasks={tasks}
         setInputText={setInputText}
         inputText={inputText}
       />
-      <Select setStatus={setStatus} />
+      <SelectInput setStatus={setStatus} />
     </form>
   );
 };

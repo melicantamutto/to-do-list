@@ -3,26 +3,39 @@ import "./App.css";
 import Form from "./components/Form";
 import ToDoList from "./components/ToDoList";
 import { db } from "./firebase-config";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Container from "@material-ui/core/Container";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+
+const useStyles = makeStyles((theme) => ({
+  mainContainer: {
+    textAlign: "center",
+    backgroundColor: '#6d6875',
+    minHeight: '100vh',
+    padding: '5rem'
+  },
+
+}));
 
 const App = () => {
+  const classes = useStyles();
   const [tasks, setTasks] = useState([]);
   const [inputText, setInputText] = useState("");
   const [status, setStatus] = useState("all");
   const [filteredTasks, setFilteredTasks] = useState([]);
 
   const getFromFirebase = () => {
-    const docs = [];
-    db.collection("tasks")
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          docs.push({ ...doc.data(), id: doc.id });
-        });
-        setTasks(docs);
+    db.collection("tasks").onSnapshot((querySnapshot) => {
+      const docs = [];
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id});
       });
+      setTasks(docs);
+    });
   };
-  
-  useEffect(getFromFirebase, [tasks]);
+
+  useEffect(getFromFirebase, []);
 
   useEffect(() => {
     const handlerFilter = () => {
@@ -43,19 +56,20 @@ const App = () => {
 
   return (
     <>
-      <header>
-        <h1>To-do List</h1>
-      </header>
-      <Form
-        setTasks={setTasks}
-        tasks={tasks}
-        setInputText={setInputText}
-        inputText={inputText}
-        setStatus={setStatus}
-      />
-      <ToDoList
-        filteredTasks={filteredTasks}
-      />
+      <CssBaseline />
+      <Container maxWidth="xl" className={classes.mainContainer}>
+        <Typography component="h1" variant="h1" color="secondary" className={classes.mainTitle}>
+          To-do List
+        </Typography>
+        <Form
+          setTasks={setTasks}
+          tasks={tasks}
+          setInputText={setInputText}
+          inputText={inputText}
+          setStatus={setStatus}
+        />
+        <ToDoList filteredTasks={filteredTasks} />
+      </Container>
     </>
   );
 };
