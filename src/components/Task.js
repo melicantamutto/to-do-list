@@ -8,16 +8,25 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "space-between",
-    paddingRight: "0.4rem",
+    flexWrap: 'wrap',
+    padding: "0.4rem",
     marginBottom: "0.75rem",
     backgroundColor: "#f4f3ee",
     alignItems: "center",
+    "@media (max-width:660px)": {
+      flexDirection: "column",
+    },
   },
   content: {
     flex: "1 0 auto",
+
   },
   mainText: {
     textAlign: "left",
+
+  },
+  buttonsContainer:{
+    
   },
   buttons: {
     background: "#643939",
@@ -81,14 +90,16 @@ const Task = ({ task }) => {
     <Card className={classes.root} id={task.id}>
       <CardContent className={classes.content}>
         <Typography
-          component="h5"
-          variant="h5"
-          className={`${classes.mainText} ${task.completed && classes.completed}`}
+          component="p"
+          variant="body1"
+          className={`${classes.mainText} ${
+            task.completed && classes.completed
+          }`}
         >
           {task.text}
         </Typography>
       </CardContent>
-      <div>
+      <div className={classes.buttonsContainer}>
         <button
           onClick={handlerComplete}
           className={`${classes.buttons} ${classes.checkButton} ${

@@ -3,17 +3,18 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: '10rem',
-    maxWidth:'fit-content',
-    listStyle: 'none',
+    minWidth: "10rem",
+    maxWidth: "fit-content",
+    listStyle: "none",
     display: "flex",
-    justifyContent: 'flex-start',
-    flexDirection:"column",
-    alignItems:'center',
-    margin: 'auto',
-    '& >*':{
-      width: '100%',
-    }
+    justifyContent: "flex-start",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "0",
+    margin: "auto",
+    "& >*": {
+      width: "100%",
+    },
   },
 }));
 

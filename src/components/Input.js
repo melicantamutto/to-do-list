@@ -10,13 +10,16 @@ import clsx from "clsx";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
-      width: '25rem',
+      width: "25rem",
       margin: theme.spacing(1),
+      "@media (max-width:660px)": {
+        width: '94%',
+      },
     },
   },
   addButton: {
     borderRadius: "5px",
-    color: '#e29578'
+    color: "#e29578",
   },
 }));
 

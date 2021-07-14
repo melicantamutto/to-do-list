@@ -1,6 +1,6 @@
-# To-do List React App
+# To-do List React App ✔️📋
 
-__Hola! Esta es una app web con un juego de tipo match-3.__
+__Hola! Esta es una app web para generar una to-do list__
 
 __Podés verla (o usarla) haciendo click [acá](https://melicantamutto.github.io/to-do-list/).__
 

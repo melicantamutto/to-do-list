@@ -5,17 +5,19 @@ import ToDoList from "./components/ToDoList";
 import { db } from "./firebase-config";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
     textAlign: "center",
-    backgroundColor: '#6d6875',
-    minHeight: '100vh',
-    padding: '5rem'
+    backgroundColor: "#6d6875",
+    minHeight: "100vh",
+    padding: "5rem",
+    "@media (max-width:780px)": { // eslint-disable-line no-useless-computed-key
+      padding: "2rem",
+    },
   },
-
 }));
 
 const App = () => {
@@ -29,7 +31,7 @@ const App = () => {
     db.collection("tasks").onSnapshot((querySnapshot) => {
       const docs = [];
       querySnapshot.forEach((doc) => {
-        docs.push({ ...doc.data(), id: doc.id});
+        docs.push({ ...doc.data(), id: doc.id });
       });
       setTasks(docs);
     });
@@ -58,7 +60,12 @@ const App = () => {
     <>
       <CssBaseline />
       <Container maxWidth="xl" className={classes.mainContainer}>
-        <Typography component="h1" variant="h1" color="secondary" className={classes.mainTitle}>
+        <Typography
+          component="h1"
+          variant="h1"
+          color="secondary"
+          className={classes.mainTitle}
+        >
           To-do List
         </Typography>
         <Form

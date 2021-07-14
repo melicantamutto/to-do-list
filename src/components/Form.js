@@ -5,11 +5,15 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    width:'fit-content',
-    backgroundColor: '#f8edeb',
-    margin:'2rem auto',
-    borderRadius:'10px',
-    padding:'0.25rem 0.75rem'
+    width: "fit-content",
+    backgroundColor: "#f8edeb",
+    margin: "2rem auto",
+    borderRadius: "10px",
+    padding: "0.25rem 0.75rem",
+    "@media (max-width:660px)": {
+      flexDirection: "column",
+      width: '100%',
+    },
   },
 }));
 
