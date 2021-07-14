@@ -1,6 +1,6 @@
 # To-do List React App ✔️📋
 
-__Hola! Esta es una app web para generar una to-do list__
+__Hola! Esta es una app web para generar una to-do list.__
 
 __Podés verla (o usarla) haciendo click [acá](https://melicantamutto.github.io/to-do-list/).__
 
