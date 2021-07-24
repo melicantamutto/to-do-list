@@ -37,7 +37,7 @@ const App = () => {
       }
     };
     getFromStorage();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -54,6 +54,10 @@ const App = () => {
           break;
       }
     };
+    const saveLocalTasks = () => {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    };
+    saveLocalTasks();
     handlerFilter();
   }, [tasks, status]);
 
@@ -70,16 +74,16 @@ const App = () => {
           To-do List
         </Typography>
         <Form
-          setTasks={setTasks}
           tasks={tasks}
-          setInputText={setInputText}
+          setTasks={setTasks}
           inputText={inputText}
+          setInputText={setInputText}
           setStatus={setStatus}
         />
         <ToDoList
+          tasks={tasks}
           setTasks={setTasks}
           filteredTasks={filteredTasks}
-          tasks={tasks}
         />
       </Container>
     </>

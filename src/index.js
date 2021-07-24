@@ -5,7 +5,6 @@ import App from "./App";
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 
-
 let theme = createMuiTheme({
   palette: {
     primary: {
@@ -25,9 +24,6 @@ let theme = createMuiTheme({
     },
   },
 });
-
-
-
 
 theme = responsiveFontSizes(theme);
 
