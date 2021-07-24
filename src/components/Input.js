@@ -1,4 +1,3 @@
-import { db } from "../firebase-config";
 import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -25,17 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Input = ({ setTasks, tasks, setInputText, inputText }) => {
   const classes = useStyles();
-  const addToFirebase = (task) => {
-    db.collection("tasks")
-      .add(task)
-      .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-      });
-  };
-
+ 
   const addTaskhandler = (e) => {
     e.preventDefault();
     const task = {
@@ -44,7 +33,6 @@ const Input = ({ setTasks, tasks, setInputText, inputText }) => {
       id: Math.random() * 10000,
     };
     setTasks([...tasks, task]);
-    addToFirebase(task);
     setInputText("");
   };
 

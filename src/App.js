@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import ToDoList from "./components/ToDoList";
-import { db } from "./firebase-config";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import { makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#6d6875",
     minHeight: "100vh",
     padding: "5rem",
-    "@media (max-width:780px)": { // eslint-disable-line no-useless-computed-key
+    "@media (max-width:780px)": {
+      // eslint-disable-line no-useless-computed-key
       padding: "2rem",
     },
   },
@@ -27,17 +27,18 @@ const App = () => {
   const [status, setStatus] = useState("all");
   const [filteredTasks, setFilteredTasks] = useState([]);
 
-  const getFromFirebase = () => {
-    db.collection("tasks").onSnapshot((querySnapshot) => {
-      const docs = [];
-      querySnapshot.forEach((doc) => {
-        docs.push({ ...doc.data(), id: doc.id });
-      });
-      setTasks(docs);
-    });
-  };
-
-  useEffect(getFromFirebase, []);
+  useEffect(() => {
+    const getFromStorage = () => {
+      if (localStorage.getItem("tasks") == null) {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+      } else {
+        const tasksLocal = JSON.parse(localStorage.getItem("tasks"));
+        setTasks(tasksLocal);
+      }
+    };
+    getFromStorage();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const handlerFilter = () => {
@@ -75,7 +76,11 @@ const App = () => {
           inputText={inputText}
           setStatus={setStatus}
         />
-        <ToDoList filteredTasks={filteredTasks} />
+        <ToDoList
+          setTasks={setTasks}
+          filteredTasks={filteredTasks}
+          tasks={tasks}
+        />
       </Container>
     </>
   );
