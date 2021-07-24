@@ -56,7 +56,6 @@ const Task = ({ task, tasks,setTasks }) => {
 
   const deleteFromStorage = () => {
     setTasks(tasks.filter(item => item.id !== task.id))
-    localStorage.setItem("tasks", JSON.stringify(tasks));
   };
 
   const editFromStorage = () => {
@@ -68,7 +67,6 @@ const Task = ({ task, tasks,setTasks }) => {
       }
       return item;
     }))
-    localStorage.setItem("tasks", JSON.stringify([...tasks, task]));
   };
 
   const handlerDelete = () => deleteFromStorage();

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "0.25rem 0.75rem",
     "@media (max-width:660px)": {
       flexDirection: "column",
-      width: '100%',
+      width: "100%",
     },
   },
 }));

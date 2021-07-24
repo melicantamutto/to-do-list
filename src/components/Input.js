@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
       width: "25rem",
       margin: theme.spacing(1),
       "@media (max-width:660px)": {
-        width: '94%',
+        width: "94%",
       },
     },
   },
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Input = ({ setTasks, tasks, setInputText, inputText }) => {
   const classes = useStyles();
- 
+
   const addTaskhandler = (e) => {
     e.preventDefault();
     const task = {
@@ -33,7 +33,6 @@ const Input = ({ setTasks, tasks, setInputText, inputText }) => {
       id: Math.random() * 10000,
     };
     setTasks([...tasks, task]);
-    localStorage.setItem("tasks", JSON.stringify([...tasks, task]));
     setInputText("");
   };
 
