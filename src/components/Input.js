@@ -33,6 +33,7 @@ const Input = ({ setTasks, tasks, setInputText, inputText }) => {
       id: Math.random() * 10000,
     };
     setTasks([...tasks, task]);
+    localStorage.setItem("tasks", JSON.stringify([...tasks, task]));
     setInputText("");
   };
 
