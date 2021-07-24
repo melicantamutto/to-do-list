@@ -1,4 +1,3 @@
-import { db } from "../firebase-config";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -52,39 +51,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Task = ({ task }) => {
+const Task = ({ task, tasks,setTasks }) => {
   const classes = useStyles();
 
-  const deleteFromFirebase = () => {
-    db.collection("tasks")
-      .doc(task.id)
-      .delete()
-      .then(() => {
-        console.log("Document successfully deleted!");
-      })
-      .catch((error) => {
-        console.error("Error removing document: ", error);
-      });
+  const deleteFromStorage = () => {
+    setTasks(tasks.filter(item => item.id !== task.id))
   };
 
-  const editFromFirebase = (item) => {
-    db.collection("tasks")
-      .doc(item.id)
-      .set({
-        ...item,
-        completed: !item.completed,
-      })
-      .then(() => {
-        console.log("Document successfully written!");
-      })
-      .catch((error) => {
-        console.error("Error writing document: ", error);
-      });
+  const editFromStorage = () => {
+    setTasks(tasks.map(item => {
+      if(task.id === item.id){
+        return {
+          ...item, completed: !item.completed
+        }
+      }
+      return item;
+    }))
   };
 
-  const handlerDelete = () => deleteFromFirebase();
+  const handlerDelete = () => deleteFromStorage();
 
-  const handlerComplete = () => editFromFirebase(task);
+  const handlerComplete = () => editFromStorage();
 
   return (
     <Card className={classes.root} id={task.id}>

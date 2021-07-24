@@ -18,12 +18,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ToDoList = ({ filteredTasks }) => {
+const ToDoList = ({ filteredTasks, tasks,setTasks }) => {
   const classes = useStyles();
   return (
     <ul className={classes.root}>
       {filteredTasks.map((task) => (
-        <Task task={task} key={task.id} />
+        <Task setTasks={setTasks} tasks={tasks} task={task} key={task.id} />
       ))}
     </ul>
   );
